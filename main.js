@@ -3,6 +3,6 @@ console.log("Salut Bugy!");
 
 
 var user = {
-    name: "Bugy",
+    name: "Bugy Vlad",
     say: function (text) { alert(text); }
 };
