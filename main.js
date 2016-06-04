@@ -1,2 +1,8 @@
 console.log("Salut Bugy!");
-console.log("Salut Vlad!");
+
+
+
+var user = {
+    name: "Bugy",
+    say: function (text) { alert(text); }
+};
