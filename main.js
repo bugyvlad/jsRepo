@@ -70,15 +70,53 @@ a = function grandParent() {
 
 a();
 
+console.log("======Call backs======")
 
 
 
+function finder(records, cb) {
+    setTimeout(function () {
+        records.push(3, 4);
+        cb(records);
+    }, 500);
+}
+function processor(records, cb) {
+    setTimeout(function () {
+        records.push(5, 6);
+        cb(records);
+    }, 500);
+}
+
+
+function onProcessorDone(records){
+    console.log(records);
+    promises();
+}
+
+function onFinderDone(records) {
+    processor(records, onProcessorDone);
+}
+
+finder([1, 2], onFinderDone);
+
+function promises() {
+	console.log("======Promises======")
+	var p = new Promise(function(resolve, reject) {
+
+		setTimeout(function(){ 
+			resolve(10); 
+			//reject(-1);
+		}, 1000);
+	});
 
 
 
-
-
-
-
-
-
+	p.then(function(data) {
+		console.log("Success result is "+data);
+		return data;
+	}).then(function(data) {
+		console.log("Data * 2 is "+data*2);
+	}), function(error) {
+		console.log("Rejected with result: "+error);
+	};	
+}
