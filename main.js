@@ -72,7 +72,7 @@ a();
 
 console.log("======Call backs======")
 
-
+console.log("Ceva aiurea");
 
 function finder(records, cb) {
     setTimeout(function () {
