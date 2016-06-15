@@ -120,3 +120,4 @@ function promises() {
 		console.log("Rejected with result: "+error);
 	};	
 }
+
